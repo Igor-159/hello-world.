@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="index.css"> 
+</head>
+<body class="body">
+    <header class="header">
+        <img class="header__logo" src="images/logo.svg">
+    </header>
+    <main>
+        <section class="profil">
+            
+            <img class="profil__avatar" src="images/image.jpg">
+            <div class="profil__data">
+                <h1 class="profil__title">Жак-ИВ Кусто</h1>
+                
+                <p class="profil__subtitle">Исследователь океана</p>
+            </div>
+            <button type="button" class="vector-pen__profil"><img  src="images/Vector0.png"></button>
+            <button class="button-open-add_card"><img class="vector-plus__profil" src="images/Vector+.png"></button> 
+        </section>
+        <section class="grid-cards">
+
+               
+
+            
+            
+            <template class="template">
+                <li class="grid-card">
+                    <img class="grid-card__img" src="">
+                    <button type="button" class="grid-card__button-remove"><img class="button-delete" src="images/Delete.svg"></button>
+                    <div class="grid-csrd__block">
+                        <h2 class="grid-card__title"></h2>
+                        <button type="button" class="button_like"></button>
+                    </div>
+                </li>
+            </template>
+        </section>
+    </main>
+    <footer class="footer">
+        <address >
+            <p class="avtor">C 2020 Mestro Russia</p>
+        </address>
+    </footer>
+
+
+    <div class="popup popup-profil">
+        <div class="popup__window">
+            <button type="button" class="popup__close-button button-close-popup-profil"></button>
+            <form class="form"> 
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <div>
+                <input type="text" class="form__input-name">
+                </div>
+                <div>
+                <input type="text" class="form__input-profession">
+                </div>
+                <button type="submit" class="form__button button-add-profil">Сохранить</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="popup popup-card">
+        <div class="popup__window">
+            <button type="button" class="popup__close-button button-close-popup-card"></button>
+            <form class="form"> 
+                <h2 class="popup__title">Новое место</h2>
+                <div>
+                <input type="text" class="form__input-name input-title-card">
+                </div>
+                <div>
+                <input type="text" class="form__input-profession input-URL-card">
+                </div>
+                <button type="button" class="form__button button-add-card">Сохранить</button>
+            </form>
+        </div>
+    </div>
+   
+    
+    
+
+
+    <script src="index.js"></script>
+</body>
+</html>
+
+
+
+
