@@ -1,4 +1,4 @@
-const profilButtonNode = document.querySelector('.vector-pen__profil');
+const profilButtonNode = document.querySelector('.button__open-edit__profil');
 const popupNode = document.querySelector('.popup');
 const popupProfilNode = document.querySelector('.popup-profil');
 const popupCardNode = document.querySelector('.popup-card')
@@ -7,8 +7,8 @@ const popupCloseButtonCardNode = document.querySelector('.button-close-popup-car
 const profilTitleNode = document.querySelector('.profil__title')
 const profilSubtitleNode = document.querySelector ('.profil__subtitle')
 const formProfilNode = document.querySelector('.form')
-const profilNameNode = document.querySelector('.form__input-name')
-const profilProfessionNode = document.querySelector('.form__input-profession')
+const profilNameNode = document.querySelector('.user__input-name')
+const profilProfessionNode = document.querySelector('.input-profession')
 const popupSubmitNode = document.querySelector('.form__button')
 const cardButtonNode = document.querySelector('.button-open-add_card')
 const listCard = document.querySelector('.grid-cards')
@@ -79,32 +79,6 @@ function removeItem(event){
     targetItem.remove()
 }
 
-/*profilButtonNode.addEventListener('click',handleButtonPopupClick);
-popupCloseButtonProfilNode.addEventListener('click',handleButtonPopupClick);
-popupCloseButtonCardNode.addEventListener('click',handleButtonPopupClick)
-cardButtonNode.addEventListener('click',handleButtonPopupClick);
-
-
-
-/*function handleButtonPopupClick(event){
-    const popupOpen = event.target
-    if( popupOpen === profilButtonNode){
-        popupProfilNode.classList.add('popup__visible')
-    };
-    if(popupOpen === popupCloseButtonProfilNode){
-        popupProfilNode.classList.remove('popup__visible')
-    };
-    if(popupOpen === cardButtonNode){
-        popupCardNode.classList.add('popup__visible')
-    };
-    if(popupOpen === popupCloseButtonCardNode){
-        popupCardNode.classList.remove('popup__visible') 
-    };
-} 
-*/
-
-
-
 
 
 
@@ -148,25 +122,17 @@ function popupClose(transmitted){
 
 
 
-
-
-
-
-
-
-
-
 formProfilNode.addEventListener('submit',handleFormSubmit);
 
 
 function handleFormSubmit(event){
     
 event.preventDefault();
-const profilNameNode = event. currentTarget.querySelector('.form__input-name');
+const profilNameNode = event. currentTarget.querySelector('.user__input-name');
 profilTitleNode.textContent = profilNameNode.value;
 
 event.preventDefault();
-const profilProfessionNode = event.currentTarget.querySelector('.form__input-profession')
+const profilProfessionNode = event.currentTarget.querySelector('.input-profession')
 profilSubtitleNode.textContent = profilProfessionNode.value;
 
 popupProfilNode.classList.remove('popup__visible')
@@ -190,6 +156,69 @@ function addNewItem (){
 }
 
 
+function showError(form, input){
+    const error = form.querySelector('#{input.id}-error');
+    error.textContent = input.validationMessage;
+    input.classList.add('popup__input_state_invalid')
+}
+function hideError(form, input){
+
+const error = form.querySelector('#{input.id}-error');
+    error.textContent = '';
+    input.classList.remove('popup__input_state_invalid')
+}
+
+function checkInputValidity(form, input){
+    if(input.validity.valid){
+        hideError(form, input)
+    }else{
+        showError(form, input)
+    }
+}
+
+function setButtonState(button, isActive){
+    if(isActive){
+        button.disabled = 'false';
+        button.classList.remove('popup__button_invalid')
+    }else{
+        button.disabled = 'disabled';
+        button.classList.add('popup__button_invalid')
+    }
+}
+
+function setEventListener (form){
+    const inputList = form.querySelectorAll('.form__input')
+    const setButtonState = form.querySelector('.popup__button')
+    inputList.forEach((input)=>{
+        input.addEventListener('input',(event)=>{
+            checkInputValidity(form, input); 
+            setButtonState(setButtonState, form.checkValidity())
+        }
+        )
+    })
+}
+
+
+
+
+
+function enableValidation(){
+    const forms = document.querySelectorAll('.form');
+
+    forms.forEach((form)=>{
+        setEventListener(form)
+
+        form.addEventListener('submit', (event)=>{
+            event.preventDefault()
+        })
+
+        const submitButton = form.querySelector('.form__button');
+        setButtonState(submitbutton, form)
+
+
+    })
+
+}
 
 
 

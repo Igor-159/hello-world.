@@ -2,6 +2,7 @@
     background: black;
     max-width: 1280px;
     margin: 0 auto 0 auto;
+    padding: 10px;
 }
 
 .header{
@@ -21,8 +22,8 @@
 }
 .profil{
     display: grid;
-    grid-template-columns:auto auto auto 1fr;
-    
+    grid-template-columns:auto auto  1fr;
+    align-items: center;
     
     max-width: 880px;
     margin: 0 auto 51px auto;
@@ -32,33 +33,47 @@
     max-width: 120px;
     max-height: 120px;
     margin-right: 30px;
-    grid-row: span 2;
+    
+    display: block;
 }
 .profil__data{
-    
+    max-width: 450px;
     justify-self:start;
     align-content: flex-start;
     display: flex;
     flex-direction: column;
+  
+}
+.profil-title-conteiner{
+    display: flex;
 }
 .profil__title{
+    max-width: 300px;
     color: white;
     margin: 22px 0 16px 0;
     font-size: 42px;
     line-height: 48px;
     margin-right: 18px;
-    
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 
 }
 .profil__subtitle{
+    max-width: 300px;
     color: white;
     margin: 0;
-    grid-column: 2;
-    grid-row: 2;
-}
-.vector-pen__profil{
-    padding: 7px;
     
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.button-pen{
+    background-image:url(images/Vector0.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 7px;
+    cursor: pointer;
     border: 1px solid white;
     align-self: center;
     background-color: black;
@@ -67,15 +82,21 @@
     height: 24px;
     
 }
-.button-open-add_card{
+.button-plus{
+    background-image:url(images/Plus.svg);
+    background-position: center;
+    background-repeat: no-repeat;
     border: 1px solid white;
     justify-self:end ;
     align-self: center;
     grid-row: span 2;
-    display: flex;
-    background: black;
-    max-width: 150px;
-    max-height: 50px;
+    box-sizing: border-box;
+    cursor: pointer;
+    outline: none;
+    background-color: black;
+    width: 9.37rem;
+    height: 3.1rem;
+    
     
 }
 .button-add_card{
@@ -84,6 +105,12 @@
     
     
 }
+.popup__button_invalid {
+    border: 1px solid rgba(0, 0, 0, .2);
+    color: rgba(0, 0, 0, .5);
+    background:#e9e9e9;
+}
+
 
 
 
@@ -93,17 +120,21 @@
     max-width: 880px;
     margin: 0 auto 66px auto;
     display: grid;
+    /*grid-template-columns: repeat(auto-fit, minmax(282px, 282px));*/
     grid-template-columns:repeat(auto-fit,282px);
     grid-template-rows: max-content;
     grid-column-gap: 17px;
     grid-row-gap: 20px;
     background: black;
+    justify-content: center;
+    
 }
 .grid-card{
     background: white;
     border-radius: 10px;
     position: relative;
     list-style-type: none;
+    
 
 }
 .grid-csrd__block{
@@ -131,6 +162,7 @@
 .button_like-active{
     background:url("images/Union.png") center no-repeat ;
     opacity: 1;
+    
 }
 
 
@@ -142,12 +174,13 @@
 width: 282px;
 height: 282px;
 background: url(images/kirill-pershin-1088404-unsplash.png);
+border-radius: 0;
 }
 
 .grid-card__img-active{
     
     position: fixed;
-    z-index:1 ;
+    z-index:2 ;
     left: 12.5vw;
     top:12.5vh;
     width: 75vw;
@@ -157,8 +190,8 @@ background: url(images/kirill-pershin-1088404-unsplash.png);
     content: '';
     position: fixed;
     background: rgba(30,30,30,0.3);
-    z-index: 2;
-    
+    z-index: 1;
+    display: block;
     top:0;
     left: 0;
     width: 100%;
@@ -196,7 +229,7 @@ background: url(images/kirill-pershin-1088404-unsplash.png);
     flex-direction: column;
 
 }
-.form__input-name{
+.form__input{
     border: none;
     border-bottom: solid 1px black;
     margin-bottom: 30px;
@@ -209,6 +242,9 @@ background: url(images/kirill-pershin-1088404-unsplash.png);
     margin-bottom: 48px;
 
 }
+.popup__input_state_invalid {
+    border-bottom: 2px solid red;
+}
 .form__button{
     max-width: 358px;
     height:50px ;
@@ -217,7 +253,7 @@ background: url(images/kirill-pershin-1088404-unsplash.png);
     
 }
 .popup{
-    position: fixed;
+    position: absolute;
     z-index: 1;
     left: 0;
     top: 0;
@@ -255,16 +291,20 @@ background: url(images/kirill-pershin-1088404-unsplash.png);
     background-size: cover;
 }
 
+@media screen and (max-width:900px){
+
+}
+
 @media screen and (max-width:670px){
     .profil{
-        display: grid;
-        grid-template-columns:auto auto auto ;
-        
-        
-        max-width: 880px;
-        margin: 0 auto 51px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    
+    margin-bottom: 36px;
     }
-    .vector-plus__profil{
+    .button-plus{
         border: 1px solid white;
         padding: 14px 64px 14px 64px;
         width: 282px;
@@ -273,4 +313,13 @@ background: url(images/kirill-pershin-1088404-unsplash.png);
         align-self: center;
         
     }
+ 
+    .profil__subtitle{
+        
+        align-self: center;
+    }
+    .profil__data{
+        margin-bottom: 20px;
+    }
+
 }

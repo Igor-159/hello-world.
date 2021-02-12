@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mesto</title>
     <link rel="stylesheet" type="text/css" href="index.css"> 
 </head>
 <body class="body">
@@ -15,20 +15,21 @@
             
             <img class="profil__avatar" src="images/image.jpg">
             <div class="profil__data">
+                <div class="profil-title-conteiner">
                 <h1 class="profil__title">Жак-ИВ Кусто</h1>
-                
+                <button type="button" class="button button-pen button__open-edit__profil"></button>
+                </div>
                 <p class="profil__subtitle">Исследователь океана</p>
             </div>
-            <button type="button" class="vector-pen__profil"><img  src="images/Vector0.png"></button>
-            <button class="button-open-add_card"><img class="vector-plus__profil" src="images/Vector+.png"></button> 
+            <button type="button" class="button button-plus button-open-add_card"></button> 
         </section>
         <section class="grid-cards">
-
+        </section>
                
 
             
             
-            <template class="template">
+            <template class="template ">
                 <li class="grid-card">
                     <img class="grid-card__img" src="">
                     <button type="button" class="grid-card__button-remove"><img class="button-delete" src="images/Delete.svg"></button>
@@ -38,7 +39,7 @@
                     </div>
                 </li>
             </template>
-        </section>
+        
     </main>
     <footer class="footer">
         <address >
@@ -50,13 +51,30 @@
     <div class="popup popup-profil">
         <div class="popup__window">
             <button type="button" class="popup__close-button button-close-popup-profil"></button>
-            <form class="form"> 
+            <form class="form" name="editing a profile" novalidate> 
                 <h2 class="popup__title">Редактировать профиль</h2>
                 <div>
-                <input type="text" class="form__input-name">
+                <input 
+                    required
+                    type="text" 
+                    autocomplete="off"
+                    id="user-name" 
+                    name="user-name" 
+                    class="form__input user__input-name"
+                    />
+                <span id='user-name-error'></span>
                 </div>
                 <div>
-                <input type="text" class="form__input-profession">
+                <input
+                    required
+                    type="text"
+                    autocomplete="off"
+                    id="input-profession" 
+                    name="input-profession"
+                    class="form__input input-profession"
+                    />
+                    
+                <span id='input-profession-error'></span>
                 </div>
                 <button type="submit" class="form__button button-add-profil">Сохранить</button>
             </form>
@@ -66,15 +84,31 @@
     <div class="popup popup-card">
         <div class="popup__window">
             <button type="button" class="popup__close-button button-close-popup-card"></button>
-            <form class="form"> 
+            <form class="form" name="addCard" novalidate> 
                 <h2 class="popup__title">Новое место</h2>
                 <div>
-                <input type="text" class="form__input-name input-title-card">
+                <input
+                    required
+                    type="text" 
+                    autocomplete="off"
+                    id="title-card"
+                    name="title-card"
+                    class="form__input input-title-card"
+                    />
+                <span id='title-card-error'></span>
                 </div>
                 <div>
-                <input type="text" class="form__input-profession input-URL-card">
+                <input
+                    required
+                    type="url"
+                    autocomplete="off"
+                    name="link" 
+                    id="link"
+                    class="form__input input-URL-card"
+                    />
+                <span id='link-error'></span>
                 </div>
-                <button type="button" class="form__button button-add-card">Сохранить</button>
+                <button type="submit" class="form__button button-add-card">Сохранить</button>
             </form>
         </div>
     </div>
